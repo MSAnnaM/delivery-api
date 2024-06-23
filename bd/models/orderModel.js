@@ -8,10 +8,6 @@ const orderSchema = new Schema(
       type: Number,
       required: true,
     },
-    products: {
-      type: Array,
-      required: true,
-    },
     status: {
       type: String,
       enum: ["in progress", "done"],
@@ -31,6 +27,11 @@ const orderSchema = new Schema(
       ref: "User",
       required: true,
     },
+     products: [{
+      type: Schema.Types.ObjectId,
+      ref: "Product",
+      required: true,
+    }],
   },
   { versionKey: false }
 );
