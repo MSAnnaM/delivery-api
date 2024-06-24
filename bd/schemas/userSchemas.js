@@ -14,6 +14,10 @@ export const userRegistrationSchema = Joi.object({
       "string.empty": '"name" cannot be an empty field',
       "any.required": '"name" is a required field',
   }),
+  role: Joi.string().messages({
+    "string.empty": '"role" cannot be an empty field',
+  }),
+
 });
 
 export const loginUserSchema = Joi.object({
