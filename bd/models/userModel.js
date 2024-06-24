@@ -29,9 +29,15 @@ const userSchema = new Schema(
       type: Number,
       default: 0,
     },
-    orders: {
-      type: Array,
-      default: null,
+    // orders: [{
+    //   type: Schema.Types.ObjectId,
+    //   ref: "Order",
+    //   default: null,
+    // }],
+    theme: {
+      type: String,
+      enum: ["light", "dark"],
+      default: "dark",
     },
     token: {
       type: String,

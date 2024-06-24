@@ -10,7 +10,7 @@ const orderSchema = new Schema(
     },
     status: {
       type: String,
-      enum: ["in progress", "done"],
+      enum: ["accepted", "in progress", "done"],
     },
     manager: {
       type: Schema.Types.ObjectId,
