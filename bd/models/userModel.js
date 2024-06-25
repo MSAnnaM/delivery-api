@@ -7,6 +7,7 @@ const userSchema = new Schema(
     name: {
       type: String,
       required: true,
+      unique: true,
     },
     email: {
       type: String,
@@ -25,19 +26,34 @@ const userSchema = new Schema(
       ref: "Role",
       required: true,
     },
+    ratings: [{
+      type: Number,
+      default: [],
+    }],
     rating: {
+      type: Number,
+    },
+    averageRating: {
       type: Number,
       default: 0,
     },
-    // orders: [{
-    //   type: Schema.Types.ObjectId,
-    //   ref: "Order",
-    //   default: null,
-    // }],
+    orders: [{
+      type: Schema.Types.ObjectId,
+      ref: "Order",
+      default: null,
+    }],
+    order: {
+      type: Number,
+    },
     theme: {
       type: String,
       enum: ["light", "dark"],
       default: "dark",
+    },
+    manager: {
+      type: Schema.Types.ObjectId,
+      ref: "User",
+      default: null,
     },
     token: {
       type: String,
