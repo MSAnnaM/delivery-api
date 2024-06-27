@@ -150,3 +150,12 @@ export const editUser = async (req, res, next) => {
     next(error);
   }
 };
+
+export const currentUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    res.json(user);
+  } catch (er) {
+    console.error(er);
+  }
+};

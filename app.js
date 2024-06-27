@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 dotenv.config();
 import userRouter from "./routes/userRoutes.js";
 import roleRouter from "./routes/roleRoutes.js";
+import productRouter from "./routes/productRoutes.js";
 
 
 const app = express();
@@ -16,6 +17,7 @@ app.use(express.static("public"));
 
 app.use("/api/users", userRouter);
 app.use("/api/roles", roleRouter);
+app.use("/api/product", productRouter);
 
 app.use((_, res) => {
   res.status(404).json({ message: "Route not found" });
