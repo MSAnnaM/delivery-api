@@ -151,11 +151,24 @@ export const editUser = async (req, res, next) => {
   }
 };
 
-export const currentUser = async (req, res) => {
+export const managerUser = async (req, res) => {
   try {
-    const user = await User.findById(req.user._id);
+    // const role = await Role.findOne ({name: "manager"})
+    // const user = await User.find({ role: role._id });
+    const user = await User.find({ manager: null });
     res.json(user);
   } catch (er) {
     console.error(er);
   }
 };
+
+export const managerTeam = async (req, res) => {
+  try { 
+    const id = req.params.managerId;
+    console.log(id);
+    const team = await User.find({manager: id});
+    res.json(team)
+  } catch (er) {
+    console.error(er);
+  }
+}
