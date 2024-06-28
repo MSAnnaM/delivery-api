@@ -32,7 +32,6 @@ export const userSignup = async (req, res, next) => {
       avatarUrl,
       role: existingRole._id,
     };
-    console.log(manager);
 
     if (role === "worker") {
       const currentManager = await User.findOne({ name: manager });
